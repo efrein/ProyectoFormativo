@@ -1,0 +1,60 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+    <!--Inicio--Main-->
+    <section id="cabecera">
+        <div class="contenedor">
+            <h1>El mundo de la tecnología en tus manos</h1>
+        </div>
+    </section>
+    <div class="separadores">
+        <h2> Para fanáticos a la tecnología</h2>
+        <p>La tecnología es fundamental para el desarrollo humano, nos une en la distancia, nos distrae y es fuente de progreso, si realmente eres un amante de la tecnología esta es tu web.</p>
+
+    </div>
+    <section id="cajas">
+        <div class="contenedor">
+            <div class="caja">
+                <img src="{% static 'images/telefono-inteligente.png'%}" alt="">
+                <h3>Celulares</h3>
+                
+            </div>
+            <div class="caja">
+                <img src="{% static 'images/audifonos-inalambricos.png'%}" alt="">
+                <h3>Audífonos</h3>
+                
+            </div>
+            <div class="caja">
+                <img src="{% static 'images/raton.png'%}" alt="">
+                <h3>Mouse</h3>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="cajas">
+        <div class="contenedor">
+            <div class="caja">
+                <img src="{% static 'images/monitor.png'%}" alt="">
+                <h3>Monitores</h3>
+                
+            </div>
+            <div class="caja">
+                <img src="{% static 'images/teclado.png'%}" alt="">
+                <h3>Teclados</h3>
+                
+            </div>
+            <div class="caja">
+                <img src="{% static 'images/camara.png'%}" alt="">
+                <h3>Cámaras</h3>
+                
+            </div>
+        </div>
+    </section>
+
+    <div class="separadores">
+        <h2> Promociones </h2>
+        <p> Hoy es tu día de suerte, tenemos promociones especiales, pero solo por un tiempo límite, ¿Qué esperas? ¡Haz  <a href="tiendapromo.html">clic a aquí </a>!</li></p>
+    </div>
+{% endblock %}
+    

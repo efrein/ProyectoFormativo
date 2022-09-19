@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MundoTech</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stile.css' %}">
+    
+    <script src="{% static 'js/jQuery362.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+
+<body>
+    <!--Inicio--Header-->
+    {% include 'includes/head.html'%}
+    <!--Final--Header-->
+    {% if alarma %}
+    <div class="alarma">
+        <p>{{ alarma}} </p>
+    </div>
+    {% endif %}
+    {% if alarma %}
+    <!--<div class="alert alarma">
+        <p>{{ alarma}} </p>
+    </div>-->
+    {% endif %}
+    <!--Inicio--Main-->
+    {% block content %}
+    {% endblock %}
+    <!--Final--main-->
+    <!--inicio--btn-->
+    {% include 'includes/btn.html'%}
+    <!--Final--btn-->
+    <!--Inicio--Footer-->
+    {% include 'includes/footer.html'%}
+    <!--Final--Footer--> 
+</body>
+
+</html>

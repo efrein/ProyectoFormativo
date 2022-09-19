@@ -1,0 +1,34 @@
+
+{% load static %}
+<header>
+    <div class="contenedor">
+        <div class="marca">
+            <h1><span class="resultado">MundoTech</span> todo en tecnología</h1>
+            <div id="nombreUsuario">
+                {% if user.id is None %}
+                <h1 class="resultado">Visitante</h1>
+                {% else %}
+                <h1 class="resultado">{{ user.username }} </h1>
+                {% endif %}
+            </div>
+            <nav>
+                <ul>
+                    <li class="actual"><a href="{% url 'home'%}">Inicio</a></li>
+                    <li class="actual"><a href="">Quienes Somos</a></li>
+                    <li class="actual"><a href="">Contactanos</a></li>
+                    <li class="actual"><a href="{% url 'productos'%}">Productos</a></li>
+                    {% if user.id is None %}
+                    <li class="actual"><a href="{% url 'registro'%}">Registro</a></li>
+                    <li class="actual"><a href="{% url 'login'%}">Ingreso</a></li>
+                    {% else %}
+                    
+                    {% endif %}
+                    {% if user.id is None %}
+                    {% else %}
+                    <li class="actual"><a href="">Salir</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>

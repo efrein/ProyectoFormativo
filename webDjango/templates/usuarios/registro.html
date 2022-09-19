@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+    <section id="boletin">
+        <div class="contenedor">
+            <h1>Registro</h1>
+        </div>
+    </section>
+
+    <div class="separadores">
+        <p> Regístrate para tener una mejor experiencia en nuestra página </p>
+    </div>
+
+    <section id="principal">
+        <div class="contenedor">
+
+            <form class="form-register" action="{%url 'registro' %}" method="POST">
+                {% csrf_token %}
+                <div class="caja-for">
+                    <h4>Formulario de Registro</h4>
+
+
+
+                    <!-- <input class="controls" type="text" name="first_name" id="nombres" placeholder="Escriba su Nombre"> -->
+
+                    <!-- <input class="controls" type="text" name="last_name" id="apellidos" placeholder="Escriba su Apellido"> -->
+
+                    <input class="controls" type="text" name="username" id="username" placeholder="Escriba su nombre de usuario">
+
+                    <input class="controls" type="email" name="email" id="email" placeholder="Escriba su Correo">
+
+                    <input class="controls" type="password" name="password" id="contraseña" placeholder="Escriba su Contraseña">
+
+                    <input class="controls" type="password" name="confirmPassword" id="confirmPassword" placeholder="Escriba su Contraseña">
+
+                    <!-- <input class="controls" type="text" name="phone_number" id="assunto" placeholder="Escriba su numero telefonico"> -->
+
+                    <!-- <input class="controls" type="text" name="numeroDocum" id="assunto" placeholder="Escriba su numero de documento"> -->
+
+                    <!-- <label for="tipoUsuario"  class="form-label">Tipo de Usuario</label>
+                    <select class="controls" name="rol" id="tipoUsuario">
+                        <option class="controls" value="admin">Administrador del sistema</option>
+                        <option class="controls" value="gerente" selected>Gerente</option>
+                        <option class="controls" value="asistente">Asistente</option>
+                    </select> -->
+
+                    <input class="botons" name="registrarse" type="submit" value="Registrarse">
+                </div>
+            </form>
+            
+        </div>
+    </section>
+{% endblock %}
