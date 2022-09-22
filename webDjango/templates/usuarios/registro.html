@@ -14,39 +14,51 @@
     <section id="principal">
         <div class="contenedor">
 
-            <form class="form-register" action="{%url 'registro' %}" method="POST">
-                {% csrf_token %}
-                <div class="caja-for">
-                    <h4>Formulario de Registro</h4>
-
-
-
-                    <!-- <input class="controls" type="text" name="first_name" id="nombres" placeholder="Escriba su Nombre"> -->
-
-                    <!-- <input class="controls" type="text" name="last_name" id="apellidos" placeholder="Escriba su Apellido"> -->
-
-                    <input class="controls" type="text" name="username" id="username" placeholder="Escriba su nombre de usuario">
-
-                    <input class="controls" type="email" name="email" id="email" placeholder="Escriba su Correo">
-
-                    <input class="controls" type="password" name="password" id="contraseña" placeholder="Escriba su Contraseña">
-
-                    <input class="controls" type="password" name="confirmPassword" id="confirmPassword" placeholder="Escriba su Contraseña">
-
-                    <!-- <input class="controls" type="text" name="phone_number" id="assunto" placeholder="Escriba su numero telefonico"> -->
-
-                    <!-- <input class="controls" type="text" name="numeroDocum" id="assunto" placeholder="Escriba su numero de documento"> -->
-
-                    <!-- <label for="tipoUsuario"  class="form-label">Tipo de Usuario</label>
-                    <select class="controls" name="rol" id="tipoUsuario">
-                        <option class="controls" value="admin">Administrador del sistema</option>
-                        <option class="controls" value="gerente" selected>Gerente</option>
-                        <option class="controls" value="asistente">Asistente</option>
-                    </select> -->
-
-                    <input class="botons" name="registrarse" type="submit" value="Registrarse">
-                </div>
-            </form>
+            <div class="col-12">
+                <form action="{% url 'registro' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label for="nombres" class="form-label">Nombres</label>
+                            <input type="text" class="form-control" name="first_name" id="nombres" placeholder="" value="" required="">
+                        </div>
+                        <div class="col-12">
+                            <label for="nombres" class="form-label">Apellidos</label>
+                            <input type="text" class="form-control" name="last_name" id="nombres" placeholder="" value="" required="">
+                        </div>
+                        <div class="col-12">
+                            <label for="nombres" class="form-label">Nombre de usuario</label>
+                            <input type="text" class="form-control" name="username" id="nombres" placeholder="" value="" required="">
+                        </div>
+                        <div class="col-12">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="correo" id="email" placeholder="correo@ejemplo.com">
+                        </div>
+            
+                        <div class="col-12">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="">
+                        </div>
+            
+                        <div class="col-12">
+                            <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
+                            <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="">
+            
+                        </div>
+            
+                        <div class="col-12">
+                            <label for="tipoUsuario" class="form-label">Tipo de Usuario</label>
+                            <select class="form-control" name="rol" id="tipoUsuario">
+                                <option value="admin">Administrador</option>
+                                <option value="gerente" selected>Soporte</option>
+                                <option value="asistente">Cliente</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <button class="w-100 btn boton1 btn-lg" type="submit">Guardar datos</button>
+                </form>
+            </div>
             
         </div>
     </section>
