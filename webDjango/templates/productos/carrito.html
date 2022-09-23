@@ -19,7 +19,7 @@
     <tbody>
         {% for prod in carrito %}
         <tr>
-            <th><input type="number" name="cantidad" id="" value="{{prod.cantidad}}" min="0" style="width: 80px;"></th>
+            <th><input type="number" name="cantidad" id="cantidad_{{prod.id}}" onchange="cambiarCantidad({{prod.id}})" value="{{prod.cantidad}}" min="0" style="width: 80px;"></th>
             <td><img src="{{ prod.icono.url }}" alt="X"></td>
             <td>{{ prod.nombre }}</td>
             <td>{{prod.valor}}/{{prod.unidad}}</td>
