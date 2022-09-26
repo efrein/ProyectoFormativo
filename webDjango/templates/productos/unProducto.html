@@ -15,9 +15,20 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item">${{producto.precio}}/{{producto.unidad}}</li>
         </ul>
+        
+        {% if user.id is None %}
+                    
+        <div class="card-body">
+          <a href="{% url 'registro'%}" class="btn btn-success">Registrate para comprar</a>
+        </div>
+
+        {% else %}
         <div class="card-body">
           <a href="{% url 'carrito' producto.id %}" class="btn btn-success">Agregar al carrito</a>
         </div>
+        {% endif %}
+      
+      
       </div>
 </div>
 {% endblock %}

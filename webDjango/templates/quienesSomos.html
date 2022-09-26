@@ -1,0 +1,34 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+    <section id="boletin">
+        <div class="contenedor">
+            <h1>¿Quiénes Somos?</h1>      
+        </div>
+    </section>
+    <section id="principal">
+        <div class="contenedor">
+            <article id="col-principal">
+                <div class="cuerpo2">
+                    <h2> Sobre nosotros </h2>
+                    <p> Somos mas que un sitio web, somos una experiencia única en compra, un lugar donde te puedes informar, un sitio en el que puedes confiar. <br><br> Estamos ubicados en Rosales de thailandia barrio el Salado Mz A casa 11. Te esperamos verte pronto en nuestros establecimientos</p>
+                </div>
+                
+                <img src="imagenes/ubicacion.png" width="500">    
+            </article>
+            <aside id="lateral">
+                <form class="form-register2">
+                    <div class="caja-for2">
+                        <h4>Suscribete para mantenerte informado de nuestros productos </h4>
+                        <input class="controls2" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
+                        
+                        <input class="controls2" type="email" name="correo" id="correo" required placeholder="Escribe tu mejor email">
+                        <p>Prometemos no hacer span </p>
+                        <input class="botons2" type="submit" value="Enviar">
+                    </div>
+                </form>
+            </aside>
+            
+        </div>
+    </section>
+    {% endblock %}

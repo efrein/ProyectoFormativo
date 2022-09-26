@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 def registrarse(request):
     context ={}
     if request.method == 'POST':
+        rol = request.POST['rol']
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         password = request.POST['password']

@@ -431,7 +431,6 @@ main a{
 #principal.oculta{
     text-transform: uppercase;
 }
-
 /* ? ---------------------------- */
 /*Boton de whatsapp*/
 .btn-wsp{
@@ -571,15 +570,9 @@ main a{
 }
 
 .alarma{
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
     background-color: #e8d41d;
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
     padding: 15px;
     color: rgb(255, 9, 9);
     background: #0a141d;
@@ -588,13 +581,7 @@ main a{
 .alarma p{
     float: left;
     margin-left: 100px;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 }
 .mensaje{
     background-color: #ebc51d;

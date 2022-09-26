@@ -14,8 +14,8 @@
             <nav>
                 <ul>
                     <li class="actual"><a href="{% url 'home'%}">Inicio</a></li>
-                    <li class="actual"><a href="">Quienes Somos</a></li>
-                    <li class="actual"><a href="">Contactanos</a></li>
+                    <li class="actual"><a href="{% url 'quienesSomos'%}">Quienes Somos</a></li>
+                    <li class="actual"><a href="{% url 'contactanos'%}">Contactanos</a></li>
                     <li class="actual"><a href="{% url 'productos'%}">Productos</a></li>
                     {% if user.id is None %}
                     <li class="actual"><a href="{% url 'registro'%}">Registro</a></li>

@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+    <section id="boletin">
+        <div class="contenedor">
+            <h1>Contactenos</h1>
+        </div>
+    </section>
+
+    <div class="separadores">
+        <h2> Hola ¿Hablamos? </h2>
+        <p> ¿Queremos saber cómo ha sido tu experiencia con la página?, nos puedes dar recomendaciones, quejas u opiniones. Estamos para escucharte</p>
+    </div>
+
+    <section id="principal">
+        <div class="contenedor">
+
+            <form method="POST" action="{% url 'contactanos'%}" class="form-register">
+                <div class="caja-for">
+                    {% csrf_token %}
+                    <h4>Formulario de contacto </h4>
+                    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Escriba su Nombre">
+                    <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Escriba su Apellido">
+                    <input class="controls" type="email" name="correo" id="correo" placeholder="Escriba su Correo">
+                    <input class="controls" type="text" name="introducir_asunto" id="assunto" placeholder="Escriba un asunto">
+                    <textarea class="controls" name="introducir_mensaje" class="texto_mensaje" id="mensaje" placeholder="Deja aquí tu comentario..."></textarea> 
+                    
+                    
+                    <p>Muchas gracias trabajaremos en tu respuesta</p>
+                    <input class="botons" type="submit" value="Enviar">
+                </div>
+            </form>
+            
+        </div>
+    </section>
+{% endblock %}

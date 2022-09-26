@@ -1,75 +1,79 @@
-/** 
-* Cambia la cantidad de un producto en el carrito
-* @param {*} id: Direccion de envio 
-*/
-function cambiarcantidad(id) {
-    let cantidad = document.getElementById('cantidad_' + id).value;
-    let url = "";
+/**
+ * 
+ * Cambia la cantidad de un producto en el carrito
+ * @param {int} id: PK del registro del producto en el carrito
+ * 
+ */
+ function cambiarCantidad(id){
+    let cantidad = document.getElementById('cantidad_'+id).value;
+    let url = "http://localhost:8000/productos/cambiarCantidad/";
     let datos = {
         'id': id,
         'cantidad': cantidad
     };
     mensajeAjax(url, datos, cambiarCantidadResp)
 }
+function cambiarCantidadResp(data){
+    alert(data['mensaje']);
+    subtotal =  data['subtotal'];
+    id =  data['id'];
+    nombre= 'subtotal_'+id
+    document.getElementById(nombre).innerText= subtotal;
 
-function cambiarCantidadResp(data) {
-    alert(data['mensaje'])
 }
 
-//*FUNCIONES AUXILIARES************************************** */
-/** 
-* Consulta AJAX al servidor por metodo POST
-* @param {*} urlserver: Direccion de envio
-* @param {*} datos: Data en formato Javascript object
-* @param {*} callBackFunction: Funcion de retorno
+///************************ Funciones Auxiliares***************************************************************** */
+
+/**
+ * Consulta AJAX al servidor por metodo POST
+ * 
+ * @param {*} urlserver:        Direccion de envio
+ * @param {*} datos:            Data en formato JavaScript object
+ * @param {*} callBackFuncion:  Funcion de retorno
 */
 
-function mensajeAjax(urlserver, datos, callBackFunction) {
+function mensajeAjax(urlserver, datos, callBackFuncion){
 
     const csrftoken = getCookie('csrftoken');
-    fetch(urlserver, {
+    fetch(urlserver,{
         method: 'POST',
         credentials: 'same-origin',
-        headers: {
+        headers:{
             'Accept': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest',
+            'X-Requested-With':  'XMLHttpRequest',
             'X-CSRFToken': csrftoken,
         },
         body: JSON.stringify(datos)
     })
-        .then(response => response.json())
-        .then(data => {
-            //mostrarAviso(data)
-            callBackFunction(data)
-        })
-        .catch((error) => {
-            console.error('Error:', JSON.stringify(error));
-        });
+    .then(response => response.json())
+    .then(data => {
+        callBackFuncion(data)
+    })
+    .catch((error) => {
+        console.error('Error:', JSON.stringify(error))
+    });
 }
 
 /**
  * 
- * @param {*} name Nombre de la cooki
- * @returns el contenido de la cooki
+ * @param {*} name nombre de la cookie
+ * @returns el contenido de la cookie
+ * 
  */
 
-function getCookie(name) {
+function getCookie(name){
     let cookieValue = null;
-    if (document.cookie && document.cookie !== "") {
+    if (document.cookie && document.cookie !== ""){
         const cookies = document.cookie.split(";");
-        for (let i = 0; i < cokkie.length; i++) {
+        for(let i = 0; i < cookies.length; i++){
             const cookie = cookies[i].trim();
-            //Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) == (name + "=")) {
+            if (cookie.substring(0, name.length + 1) === (name + "=")){
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-
             }
         }
     }
     return cookieValue;
 }
-
 
 
 

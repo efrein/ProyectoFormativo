@@ -1,13 +1,21 @@
 from asyncio.windows_events import NULL
+
 from django.shortcuts import render
+
 from .models import Producto,Carrito
-import json
-from multiprocessing import context
-from django.http import JsonResponse
-from asyncio.windows_events import NULL
+
 import json
 
+from multiprocessing import context
+from django.http import JsonResponse
+
+from asyncio.windows_events import NULL
+
+
 # Create your views here.
+def promociones(request):
+    return render(request, 'productos/tiendapromo.html')
+
 def verProductos(request, id= NULL):
 
     if not id:
