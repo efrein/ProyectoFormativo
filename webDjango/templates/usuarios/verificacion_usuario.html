@@ -1,0 +1,10 @@
+{% autoescape off%}
+
+Hola {{ user.first_name }},
+
+Por favor activa tu cuenta dando click en el siguiente enlace:
+http://{{domain}}{% url 'activate' uidb64=uid token=token%}
+Gracias,
+
+FineWine S.A
+{% endautoescape %}
