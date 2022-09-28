@@ -53,8 +53,8 @@ class Account(AbstractBaseUser):
     email = models.CharField(max_length=100, unique=True)
     phone_number = models.CharField(max_length=50, null=True)
     numeroDocum = models.IntegerField(null=True)
-    # rol = models.CharField(max_length=30, choices=ROLES, default='asistente')
-    # finca = models.ForeignKey(Finca, null=True, on_delete=models.CASCADE)
+    rol = models.CharField(max_length=30, choices=ROLES, default='asistente')
+    finca = models.ForeignKey(Finca, null=True, on_delete=models.CASCADE)
 
     #Atributos de DJANGO
     date_joined = models.DateTimeField(auto_now_add=True)
