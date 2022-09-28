@@ -70,28 +70,34 @@ def registrarse(request):
                 user.rol = rol
                 user.save()
                 context['mensaje'] = 'Usuario guardado con exito!'
+                current_site = get_current_site(request)
+                mail_subject = 'Por favor activar tu cuenTa en el sistema de ANYRO'
+
+                body = render_to_string('account_verification_email.html',{
+
+                    'user' : user,
+                    'domain' : current_site,
+                    'uid' : str(urlsafe_base64_encode(force_bytes(user.pk))),
+                    'token' : default_token_generator.make_token(user),
+                })
+                to_email = email
+                send_email = EmailMessage(mail_subject,body,to=[to_email])
+                send_email.send()
+
+                context = {
+                    'mensaje' : 'Bienvenido' + username + '. Favor activar su cuenta en el enlace enviado a su correo.'
+                }
+                return redirect(login)
+                
             else:
                 context['alarma'] = '¡El correo ya existe!'
-        
-        current_site = get_current_site(request)
-        mail_subject = 'Por favor activ tu cuenta'
-        body = render_to_string('usuarios/verificacion_usuario.html',{
-            'user' : username,
-            'domain' : current_site,
-            'uid' : str(urlsafe_base64_encode(force_bytes(user.pk))),
-            'token' : default_token_generator.make_token(user),
-
-        })
-        to_email = email
-        send_email =EmailMessage(mail_subject, body, to=[to_email])
-        send_email.send()
-
-        context = {
-            'mensaje': 'Bienvenido' + first_name + '.Favor activar la cuenta en el enlace enviado a su correo'
-        }
-        return redirect ('/usuarios/login/')
-    else:
-        return render(request, 'usuarios/registro.html', context)
+                
+        # ------------------------------ 
+                
+            
+                 
+                
+    return render(request, 'registro.html', context)
 
     
 
@@ -120,14 +126,15 @@ def logout(request):
     return redirect('login')
 #********* Activacion de Usurio, desde el correo  **********************************************************
 
-def activate(request, uidb64, token):
+def activate(request, uidb64,token):
     try:
         uid = urlsafe_base64_decode(uidb64).decode()
         user = Account._default_manager.get(pk=uid)
     except(TypeError, ValueError, OverflowError, Account.DoesNotExist):
         user = None
-    if user is not None and default_token_generator.check_token(user,token):
-        user.is_active=True
+
+    if user is not None and default_token_generator.check_token(user, token):
+        user.is_active = True
         user.save()
         return redirect('login')
     else:
