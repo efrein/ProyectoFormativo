@@ -1,22 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
-<br>
-<div class="mb-3 descripcion">
-    <h4>Lista de Productos</h4>
-</div>
 
-<div class="row">
 
-    <table class="table">
-        <tbody>
+<main>
+    <div class="row pt-2">
+        <h3 class="text-center pb-5 pt-5 h1">PRODUCTOS</h3>
+    </div>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {% for prod in productos %}
-            <tr>
-                <td><img src="{{ prod.icono.url }}" alt="X"> </td>
-                <td>{{prod.nombre}}</td>
-                <td><a href="{% url 'producto' prod.id %}" type="button" class="btn btn-info">Ver Detalles</a></td>
-            </tr>
+            <div class="col">
+                
+                    <div class="col-sm">
+                        <div class="card w-100 card-border mb-5">
+                          <img src="{{ prod.icono.url }}" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">{{prod.nombre}}</h5>
+                            <p class="card-text">{{prod.descripcion}}</p>
+                            <div class="py-5 text-center">
+                                <a href="{% url 'producto' prod.id %}" class="btn btn-color">Ver detalles</a>
+                            </div>
+                            
+                          </div>
+                        </div>
+                    </div>
+                
+            </div>
             {% endfor %}
-        </tbody>
-    </table>
-</div>
+        </div>
+    </div>
+</main>
 {% endblock %}

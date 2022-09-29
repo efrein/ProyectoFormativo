@@ -1,14 +1,10 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content %}
-    <section id="boletin">
-        <div class="contenedor">
-            <h1>Contactenos</h1>
-        </div>
-    </section>
+    
 
-    <!-- ale -->
-    <div class="separadores">
+    
+    <!-- <div class="separadores">
         <h2> INGRESO </h2>
     </div>
 
@@ -18,23 +14,73 @@
             <form class="form-register" action="{%url 'login' %}" method="POST">
                 {% csrf_token %}
                 <div class="caja-for">
-                    <!-- <input class="controls" type="text" name="first_name" id="nombres" placeholder="Escriba su Nombre"> -->
-                    <!-- <input class="controls" type="text" name="last_name" id="apellidos" placeholder="Escriba su Apellido"> -->
                     <input class="controls" type="email" name="email" id="email" placeholder="Escriba su Correo">
                     <input class="controls" type="password" name="password" id="contraseña" placeholder="Escriba su Contraseña">
-                    <!-- <input class="controls" type="text" name="phone_number" id="assunto" placeholder="Escriba su numero telefonico"> -->
-                    <!-- <input class="controls" type="text" name="numeroDocum" id="assunto" placeholder="Escriba su numero de documento"> -->
-                    <!-- <label for="tipoUsuario"  class="form-label">Tipo de Usuario</label>
-                    <select class="controls" name="rol" id="tipoUsuario">
-                        <option class="controls" value="admin">Administrador del sistema</option>
-                        <option class="controls" value="gerente" selected>Gerente</option>
-                        <option class="controls" value="asistente">Asistente</option>
-                    </select> -->
+                    
                     <h4 >¿No tienes cuenta?,<a href="{% url 'registro'%}">resgístrate aquí</a></h4>
                     <input class="botons" name="registrarse" type="submit" value="ingresar">
                 </div>
+                
             </form>
             
-        </div>
+        </div> -->
+        <div class="container">
+            <div class="row p-5">
+              <div class="col bg" aling="center">
+                <img src="{% static 'images/logoCon.png'%}" alt="">
+                <div class="card-body">
+                </div>
+              </div>
+              <div class="col">
+                <div class="tex-end">
+                </div>
+                <div class="col-sm">
+                    <form action="{%url 'login' %}" method="POST">
+                        {% csrf_token %}
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                          <input class="controls" type="email" name="email" id="email"class="form-control" />
+                          <label class="form-label" for="form1Example1">Email address</label>
+                        </div>
+                      
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                          <input class="controls" type="password" name="password" id="contraseña" class="form-control" />
+                          <label class="form-label" for="form1Example2">Password</label>
+                        </div>
+                      
+                        <!-- 2 column grid layout for inline styling -->
+                        <div class="row mb-4">
+                          <div class="col d-flex justify-content-center">
+                            <!-- Checkbox -->
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                              <label class="form-check-label" for="form1Example3"> Recuérdame </label>
+                            </div>
+                          </div>
+                      
+                          <div class="col">
+                            <!-- Simple link -->
+                            <a href="{% url 'registro'%}">No tienes usuario registrate aquí</a>
+                          </div>
+                        </div>
+                      
+                        <!-- Submit button -->
+                        <div class="d-grid">
+                            <button class="btn-color" name="registrarse" type="submit" value="ingresar">Ingresar</button>
+
+                        </div>
+                      </form>
+                </section>
+                </div>
+                <div class="d-grid">
+                    
+                </div>
+                </form>
+              </div>
+            </div>
+    </div>
+        
+        
     </section>
 {% endblock %}

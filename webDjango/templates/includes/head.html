@@ -1,25 +1,30 @@
 
 {% load static %}
 <header>
-    <div class="contenedor">
-        <div class="marca">
-            <h1><span class="resultado">MundoTech</span> todo en tecnología</h1>
-            <div id="nombreUsuario">
+    
+    
+                
+           
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <a href="index.html" class="navbar-brand"><img src="{% static 'images/logo-favicon.png'%}" class="rounded-right" alt="logo"> </a>
+
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#demo"><span
+                class="navbar-toggler-icon"></span></button>
+
+        <div class="collapse navbar-collapse" id="demo">
+            <ul class="navbar-nav ml-auto text-capitalize">
                 {% if user.id is None %}
-                <h1 class="resultado">Visitante</h1>
-                {% else %}
-                <h1 class="resultado">{{ user.username }} </h1>
-                {% endif %}
-            </div>
-            <nav>
-                <ul>
-                    <li class="actual"><a href="{% url 'home'%}">Inicio</a></li>
-                    <li class="actual"><a href="{% url 'quienesSomos'%}">Quienes Somos</a></li>
-                    <li class="actual"><a href="{% url 'contactanos'%}">Contactanos</a></li>
-                    <li class="actual"><a href="{% url 'productos'%}">Productos</a></li>
+                    <h1 class="resultado">Visitante</h1>
+                    {% else %}
+                    <h1 class="resultado">{{ user.username }} </h1>
+                    {% endif %}
+                    <li class="nav-item"></li>><a href="{% url 'home'%}" class="nav-link active ">Inicio</a></li>
+                    <li class="nav-item"></li>><a href="{% url 'quienesSomos'%}" class="nav-link ">Quienes Somos</a></li>
+                    <li class="nav-item"></li>><a href="{% url 'contactanos'%}" class="nav-link ">Contactanos</a></li>
+                    <li class="nav-item"></li>><a href="{% url 'productos'%}" class="nav-link ">Productos</a></li>
                     {% if user.id is None %}
-                    <li class="actual"><a href="{% url 'registro'%}">Registro</a></li>
-                    <li class="actual"><a href="{% url 'login'%}">Ingreso</a></li>
+                    <li class="nav-item"></li>><a href="{% url 'registro'%}" class="nav-link ">Registro</a></li>
+                    <li class="nav-item"></li>><a href="{% url 'login'%}" class="nav-link ">Ingreso</a></li>
                     
                     {% else %}
                     
@@ -28,11 +33,16 @@
                     {% else %}
                     
                     <a href="{% url 'ver_carrito'%}"><i class="fa-thin fa-bags-shopping"></i></a>
-                    <li class="actual"><a href="{% url 'logout'%}">Salir</a></li>
-                    <li class="actual"><a href="{% url 'ver_carrito'%}">Carrito</a></li>
+                    <li class="nav-item"></li>><a href="{% url 'logout'%}" class="nav-link ">Salir</a></li>
+                    <li class="nav-item"></li>><a href="{% url 'ver_carrito'%}" class="nav-link ">Carrito</a></li>
                     {% endif %}
-                </ul>
-            </nav>
+                
+              
+
+            </ul>
+
         </div>
-    </div>
+        
+    </nav>
+    
 </header>

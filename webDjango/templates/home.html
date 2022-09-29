@@ -2,59 +2,194 @@
 {% load static %}
 {% block content %}
     <!--Inicio--Main-->
-    <section id="cabecera">
-        <div class="contenedor">
-            <h1>El mundo de la tecnología en tus manos</h1>
-        </div>
-    </section>
-    <div class="separadores">
-        <h2> Para fanáticos a la tecnología</h2>
-        <p>La tecnología es fundamental para el desarrollo humano, nos une en la distancia, nos distrae y es fuente de progreso, si realmente eres un amante de la tecnología esta es tu web.</p>
+    <div class="carousel slide" data-ride="carousel" data-interval="3000" id="imgload">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'images/img1.jpg'%}" alt="img" class="img-fluid">
+                <div class="carousel-caption text-center ">
+                    <h1 class="display-4 shadow-lg">Welcome To W3_life</h1>
+                    <h3>Animated Template</h3>
+                    <button class="btn btn-outline-warning btn-lg btn_1st " data-toggle="modal"
+                        data-target="modal_info">SignUp</button>
 
+                </div>
+
+            </div>
+
+            <div class="carousel-item">
+                <img src="img/slide2.jpg" alt="img" class="img-fluid">
+
+            </div>
+            <div class="carousel-item">
+                <img src="img/slide3.jpg" alt="img" class="img-fluid">
+
+            </div>
+            <a href="#imgload" class="carousel-control-prev" data-slide="prev"><Span
+                class="carousel-control-prev-icon"></Span></a>
+            <a href="#imgload" class="carousel-control-next" data-slide="next"><Span
+                class="carousel-control-next-icon"></Span></a>
+
+
+
+
+        </div>
     </div>
-    <section id="cajas">
-        <div class="contenedor">
-            <div class="caja">
-                <img src="{% static 'images/telefono-inteligente.png'%}" alt="">
-                <h3>Celulares</h3>
-                
+
+    <section id="card1" class="padding">
+        <div class="card-columns row container-fluid">
+            <div class="row">
+            <div class="card col-md-6 col-sm-6 col-lg-3 ">
+                <h4 class="card-title">shop by catagories</h4>
+
+                <div class="card-body mb-4 ">
+                    <img src="img/team1.png" alt="img" class="card-img mb-2 img-fluid">
+
+
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="card-link stretched-link">Shop Now</a>
+
+                </div>
+
+
             </div>
-            <div class="caja">
-                <img src="{% static 'images/audifonos-inalambricos.png'%}" alt="">
-                <h3>Audífonos</h3>
-                
+
+            <div class="card col-md-6 col-sm-6 col-lg-3 ">
+                <h4 class="card-title">Men's Dress Shoes</h4>
+
+                <div class="card-body">
+                    <img src="img/team2.png" alt="img" class="card-img mb-2 img-fluid">
+                    <p class="card-text">Shop your favorite brands</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="card-link stretched-link">Shop Now</a>
+
+                </div>
+
             </div>
-            <div class="caja">
-                <img src="{% static 'images/raton.png'%}" alt="">
-                <h3>Mouse</h3>
-                
+            <div class="card col-md-6 col-sm-6 col-lg-3  ">
+                <h4 class="card-title">Women's Dress Shoes</h4>
+                <div class="card-body">
+                    <img src="img/team3.png" alt="img" class="card-img mb-2 img-fluid">
+                    <p class="card-text">Find the perfect dress for any occasion</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="card-link stretched-link">Shop Now</a>
+
+
+                </div>
+
+            </div>
+            <div class="card col-md-6 col-sm-6 col-lg-3 text-center">
+
+                <h3 class="display-6 mb-4">Sign in for the best experience</h3>
+                <button class="card-link shadow-lg btn btn-warning text-light" style="width:100%;" data-toggle="modal"
+                    data-target="#modal1">Sign in securely</button>
+
+                <div class="modal fade shadow-lg " id="modal1">
+                    <div class="modal-dialog  ">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h5 class="text-center ">Sign Up for W3Life</h5>
+
+                                <form action="" class="form-inline justify-content-center was-validated   ">
+
+
+                                    <div class="form-group">
+                                        <label for="fname" class="m-3">First Name: </label>
+                                        <input type="text" name="fname" id="fname" class="form-control form-control-sm"
+                                            placeholder="Enter username" required>
+                                        <span class="valid-feedback">Input Valid</span>
+                                        <span class="invalid-feedback">Please Input username</span>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lname" class=" m-3">Last Name: </label>
+                                        <input type="text" name="lname" id="lname" class="form-control  form-control-sm"
+                                            placeholder="Enter username" required>
+                                        <span class="valid-feedback">Input Valid</span>
+                                        <span class="invalid-feedback">Please Input username</span>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="pass" class=" m-3">Password: </label>
+                                        <input type="password" name="pass" id="pass"
+                                            class="form-control  form-control-sm" placeholder="Password" required>
+                                        <span class="valid-feedback">Input Valid</span>
+                                        <span class="invalid-feedback">Please Input username</span>
+
+                                    </div>
+
+                                    <div class=" form-group">
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" name="check" id="check" class="custom-control-input">
+                                            <label for="check" class="custom-control-label m-4">I Accept bla bla</label>
+
+                                        </div>
+                                    </div>
+
+
+                                    <button type="submit" class="btn btn-success">Submit</button>
+
+
+
+                                </form>
+
+                                <button type="button" data-dismiss="modal"
+                                    class=" close btn btn-success btn-sm ">Close</button>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
         </div>
-    </section>
-
-    <section id="cajas">
-        <div class="contenedor">
-            <div class="caja">
-                <img src="{% static 'images/monitor.png'%}" alt="">
-                <h3>Monitores</h3>
-                
-            </div>
-            <div class="caja">
-                <img src="{% static 'images/teclado.png'%}" alt="">
-                <h3>Teclados</h3>
-                
-            </div>
-            <div class="caja">
-                <img src="{% static 'images/camara.png'%}" alt="">
-                <h3>Cámaras</h3>
-                
-            </div>
         </div>
+
+    </section>
+    <!----Two column section----->
+
+    <section id="twocolumn" class="padding">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+
+                    <img src="img/image1.jpg" alt="img" class="img-fluid mx-auto d-block">
+
+
+                </div>
+                <div class="col-xs-12 col-sm-6 text-center">
+
+                    <h3 class="mb-4">Use Best Of google Assistance</h3>
+                    <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit
+                        amet, consectetur adipisicing elit. Ut aliquam explicabo, corrupti ipsa sapiente necessitatibus
+                        quae id ducimus corporis sunt!</p>
+
+                    <button class="btn btn-outline-danger btn-sm mt-4" type="button">Visit Site</button>
+
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
     </section>
 
-    <div class="separadores">
-        <h2> Promociones </h2>
-        <p> Hoy es tu día de suerte, tenemos promociones especiales, pero solo por un tiempo límite, ¿Qué esperas? ¡Haz  <a href="{% url 'promociones'%}">clic a aquí </a>!</li></p>
-    </div>
 {% endblock %}
     

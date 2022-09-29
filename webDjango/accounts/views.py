@@ -14,28 +14,23 @@ from django.core.mail import EmailMessage, send_mail
 from django.template.loader import render_to_string
 from django.contrib.sites.shortcuts import get_current_site'''
 #--------------------------mi libreria ------------
-from cmath import acos
-from contextlib import ContextDecorator
-from email.message import Message
-from email.policy import default
-from django.shortcuts import render, redirect
+from ast import Return
+from base64 import urlsafe_b64decode
+from contextlib import redirect_stderr
+from multiprocessing import context
 from accounts.models import Account
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-from django.db import IntegrityError
-from django.shortcuts import redirect, render
-from .models import Account
-from email.message import EmailMessage
-
-from accounts.models import Account
-from accounts.models import MyAccountManager
-
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
-from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
+from django.core.mail import EmailMessage
 from django.core.mail import EmailMessage, send_mail
+from .models import Account
+from django.shortcuts import render,redirect
+
 
 # ************************************************************
 
@@ -65,20 +60,22 @@ def registrarse(request):
         #Todo OK
         if ok:
             existe = Account.objects.filter(email=email).exists()
-            if not existe:
+            existe1 = Account.objects.filter(username=username).exists()
+            if not existe and not existe1:
                 user = Account.objects.create_user(first_name=first_name, last_name=last_name, username=username, email=email, password=password)
                 user.rol = rol
                 user.save()
                 context['mensaje'] = 'Usuario guardado con exito!'
                 current_site = get_current_site(request)
-                mail_subject = 'Por favor activar tu cuenTa en el sistema de ANYRO'
+                mail_subject = 'Por favor activar tu cuenTa '
 
-                body = render_to_string('account_verification_email.html',{
+                
+                body= render_to_string('usuarios/verificacion_usuario.html',{
 
-                    'user' : user,
-                    'domain' : current_site,
-                    'uid' : str(urlsafe_base64_encode(force_bytes(user.pk))),
-                    'token' : default_token_generator.make_token(user),
+                    'user':user,
+                    'domain':current_site,
+                    'uid':str(urlsafe_base64_encode(force_bytes(user.pk))),
+                    'token':default_token_generator.make_token(user),
                 })
                 to_email = email
                 send_email = EmailMessage(mail_subject,body,to=[to_email])
@@ -87,7 +84,7 @@ def registrarse(request):
                 context = {
                     'mensaje' : 'Bienvenido' + username + '. Favor activar su cuenta en el enlace enviado a su correo.'
                 }
-                return redirect(login)
+                return redirect('usuarios/login.html')
                 
             else:
                 context['alarma'] = '¡El correo ya existe!'
@@ -97,7 +94,7 @@ def registrarse(request):
             
                  
                 
-    return render(request, 'registro.html', context)
+    return render(request, 'usuarios/registro.html', context)
 
     
 
