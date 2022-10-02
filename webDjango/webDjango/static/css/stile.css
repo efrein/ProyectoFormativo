@@ -1,4 +1,39 @@
+#separator-ribbon{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
 
+#separator-ribbon.content{
+    width: 150%;
+    height: 150px;
+    margin-left: -25%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+#tarjetas{
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgb(243, 240, 240) 0% , 57%);
+    background-repeat: repeat-x;
+    background-size: 75%;
+    margin-top: -20px;
+}
+
+.card-border{
+    border: black;
+    border-radius: solid 5px;
+    overflow: hidden;
+    transition: all ease-out 0.2s;
+}
+
+.card-border:hover{
+    transform: scale(1.05);
+}
+h5{
+    text-align: center;
+}
 
 .alarma{
 
