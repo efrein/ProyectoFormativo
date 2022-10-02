@@ -46,3 +46,15 @@
     </nav>
     
 </header>
+{% if alarma %}
+    <div class="alert alert-danger" role="alert">
+        <p>{{ alarma}} </p>
+    </div>
+    
+{% endif %}
+    
+{% if mensaje %}
+    <div class="alert alert-danger" role="alert">
+        <p>{{ mensaje}} </p>
+    </div>
+{% endif %}

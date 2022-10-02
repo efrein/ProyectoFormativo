@@ -2,21 +2,7 @@
 {% load static %}
 {% block content %}
 
-    {% if alarma %}
-    <div class="alert alert-danger" role="alert">
-        <p>{{ alarma}} </p>
-    </div>
     
-    {% endif %}
-    
-
-
-
-    {% if mensaje %}
-    <div class="alert alert-danger" role="alert">
-        <p>{{ mensaje}} </p>
-    </div>
-    {% endif %}
     
 
 
@@ -75,7 +61,7 @@
                 </div>
             </div>
             <hr class="my-4">
-            <button class="w-100 btn boton1 btn-lg" type="submit">Guardar datos</button>
+            <button name="registrarse" type="submit">Guardar datos</button>
         </form>
       </div>
     </div>

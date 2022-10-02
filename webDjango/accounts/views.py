@@ -84,7 +84,7 @@ def registrarse(request):
                 context = {
                     'mensaje' : 'Bienvenido' + username + '. Favor activar su cuenta en el enlace enviado a su correo.'
                 }
-                return redirect('usuarios/login.html')
+                return redirect('home')
                 
             else:
                 context['alarma'] = '¡El correo ya existe!'
