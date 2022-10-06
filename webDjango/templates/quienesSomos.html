@@ -1,34 +1,48 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content %}
-    <section id="boletin">
-        <div class="contenedor">
-            <h1>¿Quiénes Somos?</h1>      
-        </div>
-    </section>
-    <section id="principal">
-        <div class="contenedor">
-            <article id="col-principal">
-                <div class="cuerpo2">
-                    <h2> Sobre nosotros </h2>
-                    <p> Somos mas que un sitio web, somos una experiencia única en compra, un lugar donde te puedes informar, un sitio en el que puedes confiar. <br><br> Estamos ubicados en Rosales de thailandia barrio el Salado Mz A casa 11. Te esperamos verte pronto en nuestros establecimientos</p>
+<section id="contact" class="padding">
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+                <h4 class="display-4 text-center">Contact With US</h4>
+                <hr class="my-4">
+
+            </div>
+
+
+            <div class="col-xs-12 col-md-6 " id="contact" class="one">
+
+
+                <div class="col-md-6 col-sm-12 pad">
+                    <h3>Misión</h3>
+                    <p>Trabajamos para ofrecerle a nuestros clientes los mejores productos y precios, con cuotas claras, para atenderlos en forma especializada y ser destino de sus compras.
+                    </p>
+
+                    <h3>Visión</h3>
+                    <p>
+                        Queremos ser reconocidos como una compañia cercana al cliente, con un crédito transparente, amplio portafolio de productos y servicios.
+                    </p>
+
+
+                    
+
                 </div>
-                
-                <img src="imagenes/ubicacion.png" width="500">    
-            </article>
-            <aside id="lateral">
-                <form class="form-register2">
-                    <div class="caja-for2">
-                        <h4>Suscribete para mantenerte informado de nuestros productos </h4>
-                        <input class="controls2" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
-                        
-                        <input class="controls2" type="email" name="correo" id="correo" required placeholder="Escribe tu mejor email">
-                        <p>Prometemos no hacer span </p>
-                        <input class="botons2" type="submit" value="Enviar">
-                    </div>
-                </form>
-            </aside>
-            
-        </div>
-    </section>
+
+
+
+
+
+            </div>
+
+
+
+            <div class="col-xs-12 col-md-6" id="contact" class="two">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115806.34359550575!2d91.79094155131145!3d24.899747201107232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375054d3d270329f%3A0xf58ef93431f67382!2sSylhet!5e0!3m2!1sen!2sbd!4v1516883061409"
+                    width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+            </div>
     {% endblock %}

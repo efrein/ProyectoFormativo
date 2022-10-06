@@ -1,17 +1,56 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content %}
-    <section id="boletin">
-        <div class="contenedor">
-            <h1>Contactenos</h1>
+
+<body>
+  <div class="row pt-2">
+    <h3 class="text-center pb-5 pt-5 h1"></h3>
+</div>
+    <div class="container">
+      <div class="row p-5">
+        <div class="col bg" aling="center">
+          <img src="{% static 'images/logoCon.png'%}" alt="">
+          <div class="card-body">
+          </div>
         </div>
-    </section>
+        <div class="col">
+          <div class="tex-end">
+          </div>
+          <h2 class="fw-bold text-center py-5">Contactanos</h2>
+          <form method="POST" action="{% url 'contactanos'%}">
 
-    <div class="separadores">
-        <h2> Hola ¿Hablamos? </h2>
-        <p> ¿Queremos saber cómo ha sido tu experiencia con la página?, nos puedes dar recomendaciones, quejas u opiniones. Estamos para escucharte</p>
+            {% csrf_token %}
+            <div class="d-grid">
+              <label for="text" class="form-label">Nombre</label>
+              <input class="controls card-border2" type="text" name="nombres" id="nombres"
+                placeholder="Escriba su Nombre">
+              <br>
+              <label for="text" class="form-label">Apellido</label>
+              <input class="controls card-border2" type="text" name="apellidos" id="apellidos"
+                placeholder="Escriba su Apellido">
+              <br>
+              <label for="email" class="form-label">Correo electrónico</label>
+              <input class="controls card-border2" type="email" name="correo" id="correo" placeholder="Escriba su Correo">
+              <br>
+              <label for="text" class="form-label">Asunto</label>
+              <input class="controls card-border2" type="text" name="introducir_asunto" id="assunto"
+                placeholder="Escriba un asunto">
+              <br>
+              <label for="text" class="form-label">Comentario</label>
+              <textarea class="controls card-border2" name="introducir_mensaje" class="texto_mensaje" id="mensaje"
+                placeholder="Deja aquí tu comentario..."></textarea>
+            </div>
+            <div class="d-grid">
+              <br>
+              <p>Muchas gracias, trabajaremos en tu respuesta.</p>
+              <input class="btn-color" type="submit" value="Enviar">
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-
+  </body>
+    <!-- --------------------------------------------------
     <section id="principal">
         <div class="contenedor">
 
@@ -32,5 +71,5 @@
             </form>
             
         </div>
-    </section>
+    </section> -->
 {% endblock %}

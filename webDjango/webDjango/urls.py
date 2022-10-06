@@ -29,4 +29,5 @@ urlpatterns = [
     path('Contactanos/', views.contactanos, name="contactanos"),
     path('accounts/', include('accounts.urls')),
     path('productos/', include('appProductos.urls')),
+    
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

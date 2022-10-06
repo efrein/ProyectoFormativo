@@ -20,7 +20,7 @@ def contactanos(request):
         
         #---------------------------------------------
     
-        to_email = ['eiguedez@misena.edu.co']   #Lista con el o los correos de destino
+        to_email = ['mundotech.ale@gmail.com']   #Lista con el o los correos de destino
        
         send_email = EmailMessage(subject, message, to= to_email )
         send_email.send()

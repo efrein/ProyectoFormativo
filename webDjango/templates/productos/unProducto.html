@@ -1,34 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
-<br>
-<div class="mb-3 descripcion">
-    <h4>Lista de Productos</h4>
+
+<div class="container p-5">
+  <div class="row pt-5">
+      <h3 class="text-center pb-5 pt-5 h1">Detalles del producto</h3>
+  </div>
 </div>
-
-<div class="row">
-    <div class="card col-6 offset-3">
-        <img src="{{ producto.imagen.url }}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{producto.nombre}}</h5>
-          <p class="card-text">{{producto.descripcion}}</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">${{producto.precio}}/{{producto.unidad}}</li>
-        </ul>
-        
-        {% if user.id is None %}
-                    
-        <div class="card-body">
-          <a href="{% url 'registro'%}" class="btn btn-success">Registrate para comprar</a>
-        </div>
-
-        {% else %}
-        <div class="card-body">
-          <a href="{% url 'carrito' producto.id %}" class="btn btn-success">Agregar al carrito</a>
-        </div>
-        {% endif %}
-      
-      
+<div class="row p-5">
+  <div class="col-sm">
+      <div class="card w-100 det-color mb-5 text-center">
+          <img src="{{ producto.imagen.url }}" class="card-img-top" alt="texto">
+          <div class="card-body">
+          </div>
       </div>
+  </div>
+  <div class="col-sm">
+      <div class="card w-100 card-border1 mb-5 ">
+          <div class="card-body">
+              <h5 class="card-title">{{producto.nombre}}</h5>
+              <p class="card-text">{{producto.descripcion}}</p>
+              <p class="card-text">${{producto.precio}}/{{producto.unidad}}</p>
+              {% if user.id is None %}
+              <a href="{% url 'registro'%}" class="btn btn-color">Registrate para comprar</a>
+              {% else %}
+              <a href="{% url 'carrito' producto.id %}" class="btn btn-color">Añadir al carrito</a>
+              {% endif %}
+
+          </div>
+      </div>
+  </div>
 </div>
+
 {% endblock %}
